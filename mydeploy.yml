@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: javaapp-deply
+  labels:
+    app: javaapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: javaapp
+  template:
+    metadata:
+      labels:
+        app: javaapp
+    spec:
+      containers:
+      - name: myjavaapp-container
+        image: maha4iac/myonlinebooking:1
+        ports:
+        - containerPort: 8080
